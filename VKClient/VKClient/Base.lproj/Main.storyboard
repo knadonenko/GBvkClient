@@ -48,13 +48,21 @@
                                 </constraints>
                                 <state key="normal" title="Login"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your login and password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybb-C2-w49">
+                                <rect key="frame" x="92" y="162" width="230" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="19D-29-U6X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2eO-sA-sp8"/>
                             <constraint firstItem="tfN-1V-zMv" firstAttribute="top" secondItem="19D-29-U6X" secondAttribute="bottom" constant="8" id="3KJ-sw-gem"/>
+                            <constraint firstItem="Ybb-C2-w49" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="118" id="4IH-qc-cez"/>
                             <constraint firstItem="U1N-dU-nep" firstAttribute="leading" secondItem="tfN-1V-zMv" secondAttribute="leading" id="7Vu-vp-XyH"/>
+                            <constraint firstItem="Ybb-C2-w49" firstAttribute="centerX" secondItem="cf4-1h-E42" secondAttribute="centerX" id="7uC-8I-zb7"/>
                             <constraint firstItem="19D-29-U6X" firstAttribute="trailing" secondItem="JWD-H8-mUv" secondAttribute="trailing" id="92w-AO-b0m"/>
                             <constraint firstItem="U1N-dU-nep" firstAttribute="leading" secondItem="JWD-H8-mUv" secondAttribute="leading" id="LO0-jh-lY5"/>
                             <constraint firstItem="cf4-1h-E42" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lzh-a3-SSG"/>
