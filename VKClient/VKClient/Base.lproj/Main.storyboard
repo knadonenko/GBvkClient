@@ -228,9 +228,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="vtN-WV-zvm" kind="show" id="myp-8L-zfv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -238,7 +235,13 @@
                             <outlet property="delegate" destination="3WT-Ig-Amo" id="qPf-gR-G6w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="p06-QK-5q0"/>
+                    <navigationItem key="navigationItem" id="p06-QK-5q0">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="BfV-15-sBb">
+                            <connections>
+                                <segue destination="vtN-WV-zvm" kind="show" id="CNU-Dl-Ovm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhY-D0-mj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
