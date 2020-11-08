@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA21039D25582709005B2AB3 /* AlphabeticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21039C25582709005B2AB3 /* AlphabeticView.swift */; };
 		BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */; };
 		BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC772552CEED0020F72B /* FriendsViewController.swift */; };
 		BA48CC7C2552D20F0020F72B /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC7B2552D20F0020F72B /* FriendsListViewController.swift */; };
@@ -29,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA21039C25582709005B2AB3 /* AlphabeticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticView.swift; sourceTree = "<group>"; };
 		BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA48CC772552CEED0020F72B /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		BA48CC7B2552D20F0020F72B /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */,
 				BA7E2DC325567F5200868F51 /* AvatarImageView.swift */,
 				BA7E2DCA2557EE7000868F51 /* LikeButton.swift */,
-				BA21039C25582709005B2AB3 /* AlphabeticView.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -215,7 +212,6 @@
 				BA48CC822552D9300020F72B /* FriendsPhotoCell.swift in Sources */,
 				BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */,
 				BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */,
-				BA21039D25582709005B2AB3 /* AlphabeticView.swift in Sources */,
 				BA48CC9A2552E9FE0020F72B /* Friends.swift in Sources */,
 				BA48CC8B2552E7440020F72B /* MyGroupsViewController.swift in Sources */,
 				BA48CC8E2552E7550020F72B /* MyGroupsCell.swift in Sources */,
