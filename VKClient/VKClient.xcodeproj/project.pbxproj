@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA21039D25582709005B2AB3 /* AlphabeticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21039C25582709005B2AB3 /* AlphabeticView.swift */; };
 		BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */; };
 		BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC772552CEED0020F72B /* FriendsViewController.swift */; };
 		BA48CC7C2552D20F0020F72B /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC7B2552D20F0020F72B /* FriendsListViewController.swift */; };
@@ -22,9 +23,13 @@
 		BA756B3E25457C280087B127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA756B3C25457C280087B127 /* Main.storyboard */; };
 		BA756B4025457C290087B127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA756B3F25457C290087B127 /* Assets.xcassets */; };
 		BA756B4325457C290087B127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA756B4125457C290087B127 /* LaunchScreen.storyboard */; };
+		BA7E2DC125567AE400868F51 /* RoundedAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */; };
+		BA7E2DC425567F5200868F51 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DC325567F5200868F51 /* AvatarImageView.swift */; };
+		BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DCA2557EE7000868F51 /* LikeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA21039C25582709005B2AB3 /* AlphabeticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabeticView.swift; sourceTree = "<group>"; };
 		BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA48CC772552CEED0020F72B /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		BA48CC7B2552D20F0020F72B /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,9 @@
 		BA756B3F25457C290087B127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA756B4225457C290087B127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA756B4425457C290087B127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedAvatar.swift; sourceTree = "<group>"; };
+		BA7E2DC325567F5200868F51 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		BA7E2DCA2557EE7000868F51 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 		BA756B3525457C280087B127 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				BA7E2DC82557EBCE00868F51 /* CustomControls */,
 				BA48CC902552E8D00020F72B /* Model */,
 				BA48CC762552CEC80020F72B /* Groups */,
 				BA48CC752552CEC10020F72B /* Friends */,
@@ -116,6 +125,17 @@
 				BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */,
 			);
 			path = VKClient;
+			sourceTree = "<group>";
+		};
+		BA7E2DC82557EBCE00868F51 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */,
+				BA7E2DC325567F5200868F51 /* AvatarImageView.swift */,
+				BA7E2DCA2557EE7000868F51 /* LikeButton.swift */,
+				BA21039C25582709005B2AB3 /* AlphabeticView.swift */,
+			);
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,11 +215,15 @@
 				BA48CC822552D9300020F72B /* FriendsPhotoCell.swift in Sources */,
 				BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */,
 				BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */,
+				BA21039D25582709005B2AB3 /* AlphabeticView.swift in Sources */,
 				BA48CC9A2552E9FE0020F72B /* Friends.swift in Sources */,
 				BA48CC8B2552E7440020F72B /* MyGroupsViewController.swift in Sources */,
 				BA48CC8E2552E7550020F72B /* MyGroupsCell.swift in Sources */,
 				BA756B3725457C280087B127 /* AppDelegate.swift in Sources */,
+				BA7E2DC125567AE400868F51 /* RoundedAvatar.swift in Sources */,
 				BA48CC882552DEAF0020F72B /* GroupCell.swift in Sources */,
+				BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */,
+				BA7E2DC425567F5200868F51 /* AvatarImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

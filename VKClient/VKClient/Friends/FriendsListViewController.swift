@@ -10,28 +10,42 @@ import UIKit
 class FriendsListViewController: UITableViewController {
     
     var friendsList = Friends.allFriends
+    
+    var sections = [Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let groupedFriends = Dictionary(grouping: friendsList.keys.sorted(), by: {String($0.prefix(1))})
+        let keys = groupedFriends.keys.sorted()
+        
+        sections = keys.map{ Section(letter: $0, names: groupedFriends[$0]!.sorted())}
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsList.count
+        return sections[section].names.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
         
-        let friendsName = friendsList.keys.sorted()
-        let friend = friendsName[indexPath.row]
-        cell.friendsName.text = friend
-        cell.friendsAvatar.image = UIImage(named: friendsList[friend]!)
+        let section = sections[indexPath.section]
+        cell.friendsName.text = section.names[indexPath.row]
+        cell.friendsAvatar.image = UIImage(named: friendsList[section.names[indexPath.row]]!)
         
         return cell
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sections.map{$0.letter}
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].letter
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +59,11 @@ class FriendsListViewController: UITableViewController {
             }
             
         }
+    }
+    
+    struct Section {
+        let letter : String
+        let names : [String]
     }
 
 }
