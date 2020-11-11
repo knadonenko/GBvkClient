@@ -35,5 +35,34 @@ class MyGroupsViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            groups.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    @IBAction func addGroups(segue: UIStoryboardSegue) {
+        
+        if segue.identifier == "addGroup" {
+            
+            guard let allGroupsController = segue.source as? GroupsViewController else {
+                return
+            }
+            
+            if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
+                
+                let city = allGroupsController.groups[indexPath.row]
+                if !groups.contains(city) {
+                    groups.append(city)
+                    tableView.reloadData()
+                }
+                
+            }
+            
+        }
+        
+    }
 
 }
