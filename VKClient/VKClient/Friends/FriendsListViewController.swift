@@ -53,9 +53,8 @@ class FriendsListViewController: UITableViewController {
             
             let friendPhotoController = segue.destination as! FriendsViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let friendsName = friendsList.keys.sorted()
-                let friendsImagePath = friendsList[friendsName[indexPath.row]]
-                friendPhotoController.friendsImagePath = friendsImagePath
+                let section = sections[indexPath.section]
+                friendPhotoController.friendsImagePath = friendsList[section.names[indexPath.row]]
             }
             
         }

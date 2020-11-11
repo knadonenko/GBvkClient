@@ -65,9 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				BA48CC772552CEED0020F72B /* FriendsViewController.swift */,
+				BA48CC812552D9300020F72B /* FriendsPhotoCell.swift */,
 				BA48CC7B2552D20F0020F72B /* FriendsListViewController.swift */,
 				BA48CC7E2552D4260020F72B /* FriendsCell.swift */,
-				BA48CC812552D9300020F72B /* FriendsPhotoCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -75,10 +75,10 @@
 		BA48CC762552CEC80020F72B /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				BA48CC8D2552E7550020F72B /* MyGroupsCell.swift */,
+				BA48CC8A2552E7440020F72B /* MyGroupsViewController.swift */,
 				BA48CC842552DE9C0020F72B /* GroupsViewController.swift */,
 				BA48CC872552DEAF0020F72B /* GroupCell.swift */,
-				BA48CC8A2552E7440020F72B /* MyGroupsViewController.swift */,
-				BA48CC8D2552E7550020F72B /* MyGroupsCell.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";

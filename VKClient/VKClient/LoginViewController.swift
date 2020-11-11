@@ -11,8 +11,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var loginInput: UITextField!
@@ -24,10 +22,11 @@ class LoginViewController: UIViewController {
         
         if !userData {
             showLoginError()
+            return userData
+        } else {
+            self.dismiss(animated: false)
+            return userData
         }
-
-        return userData
-        
     }
     
     func verifyLogin() -> Bool {
@@ -39,7 +38,6 @@ class LoginViewController: UIViewController {
         if login == "admin" && password == "123456" {
             return true
         } else {
-            
             return false
         }
         
