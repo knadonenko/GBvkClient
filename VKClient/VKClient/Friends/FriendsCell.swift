@@ -12,6 +12,7 @@ class FriendsCell: UITableViewCell {
     @IBOutlet weak var friendsName: UILabel!
     @IBOutlet weak var friendsAvatar: UIImageView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
