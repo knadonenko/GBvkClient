@@ -31,15 +31,17 @@ class LoginViewController: UIViewController {
     
     func verifyLogin() -> Bool {
         
-        guard let login = loginInput.text, let password = passwordInput.text else {
-            return false
-        }
+//        guard let login = loginInput.text, let password = passwordInput.text else {
+//            return false
+//        }
+//
+//        if login == "admin" && password == "123456" {
+//            return true
+//        } else {
+//            return false
+//        }
         
-        if login == "admin" && password == "123456" {
-            return true
-        } else {
-            return false
-        }
+        return true
         
     }
     
