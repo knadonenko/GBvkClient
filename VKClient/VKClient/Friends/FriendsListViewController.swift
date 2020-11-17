@@ -31,12 +31,29 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
-        
         let section = sections[indexPath.section]
         cell.friendsName.text = section.names[indexPath.row]
         cell.friendsAvatar.image = UIImage(named: friendsList[section.names[indexPath.row]]!)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTap(tapGesture:)))
+        tapGesture.numberOfTapsRequired = 1
+        cell.friendsAvatar.isUserInteractionEnabled = true
+        cell.friendsAvatar.addGestureRecognizer(tapGesture)
+        
         return cell
+    }
+    
+    @objc func imgTap(tapGesture: UITapGestureRecognizer) {
+        let imgView = tapGesture.view as! UIImageView
+        imgView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+
+        UIView.animate(withDuration: 1.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: .curveEaseOut,
+                       animations: { imgView.transform = .identity},
+                       completion: nil)
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {

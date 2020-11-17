@@ -13,8 +13,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
+    
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var loadingIndicator: DottedProgressBar!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        loadingIndicator.animate()
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         

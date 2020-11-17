@@ -56,6 +56,11 @@
                                             <segue destination="zoY-6m-DCe" kind="presentation" modalPresentationStyle="fullScreen" id="Pna-FL-XvP"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-js-0VF" customClass="DottedProgressBar" customModule="VKClient" customModuleProvider="target">
+                                        <rect key="frame" x="87" y="482" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cOm-nE-INH" firstAttribute="top" secondItem="nLl-IP-AwD" secondAttribute="bottom" constant="59" id="3Wq-Bs-Vxz"/>
@@ -90,6 +95,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicator" destination="kwh-js-0VF" id="3eD-tY-IoH"/>
                         <outlet property="loginInput" destination="Qz5-Ci-6eW" id="tvC-6h-1Ja"/>
                         <outlet property="passwordInput" destination="GRT-qK-U9h" id="8Jg-qn-e9h"/>
                     </connections>
@@ -216,7 +222,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qos-6D-wsB" customClass="RoundedAvatar" customModule="VKClient" customModuleProvider="target">
                                             <rect key="frame" x="344" y="10" width="50" height="50"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-t9-Q7Y" customClass="AvatarImageView" customModule="VKClient" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-t9-Q7Y" customClass="AvatarImageView" customModule="VKClient" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="09B-SJ-6zB"/>
@@ -262,6 +268,7 @@
                                 <connections>
                                     <outlet property="friendsAvatar" destination="6c3-t9-Q7Y" id="4jj-8J-EAw"/>
                                     <outlet property="friendsName" destination="Bem-A5-UoQ" id="Cuf-hw-IFy"/>
+                                    <outlet property="roundedView" destination="qos-6D-wsB" id="PPO-Wl-pY4"/>
                                     <segue destination="ffV-6b-BBB" kind="show" identifier="ShowFriendAvatar" id="Way-az-4eR"/>
                                 </connections>
                             </tableViewCell>
