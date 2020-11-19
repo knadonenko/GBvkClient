@@ -7,19 +7,18 @@
 
 import UIKit
 
-class FriendsListViewController: UITableViewController {
+class FriendsListViewController: UITableViewController, UISearchBarDelegate {
     
     var friendsList = Friends.allFriends
+    var filteredFriendsList: [Section]!
+    var searchActive = false
     
     var sections = [Section]()
-
+    @IBOutlet weak var friendsSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let groupedFriends = Dictionary(grouping: friendsList.keys.sorted(), by: {String($0.prefix(1))})
-        let keys = groupedFriends.keys.sorted()
-        
-        sections = keys.map{ Section(letter: $0, names: groupedFriends[$0]!.sorted())}
-        
+        loadInitialData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,6 +62,23 @@ class FriendsListViewController: UITableViewController {
     struct Section {
         let letter : String
         let names : [String]
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        sections = sections.filter{ $0.names.contains(where: {$0.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil}) }
+        
+        if(searchText.count == 0) {
+            loadInitialData()
+        }
+
+        tableView.reloadData()
+    }
+    
+    func loadInitialData() {
+        let groupedFriends = Dictionary(grouping: friendsList.keys.sorted(), by: {String($0.prefix(1))})
+        let keys = groupedFriends.keys.sorted()
+        
+        sections = keys.map{ Section(letter: $0, names: groupedFriends[$0]!.sorted())}
     }
 
 }

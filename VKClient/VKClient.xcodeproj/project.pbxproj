@@ -25,6 +25,8 @@
 		BA7E2DC125567AE400868F51 /* RoundedAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */; };
 		BA7E2DC425567F5200868F51 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DC325567F5200868F51 /* AvatarImageView.swift */; };
 		BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DCA2557EE7000868F51 /* LikeButton.swift */; };
+		BA8AA3922561141A008E348A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3912561141A008E348A /* NewsTableViewController.swift */; };
+		BA8AA3962561186C008E348A /* NewsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedAvatar.swift; sourceTree = "<group>"; };
 		BA7E2DC325567F5200868F51 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		BA7E2DCA2557EE7000868F51 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		BA8AA3912561141A008E348A /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		BA756B3525457C280087B127 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				BA8AA39025611037008E348A /* News */,
 				BA7E2DC82557EBCE00868F51 /* CustomControls */,
 				BA48CC902552E8D00020F72B /* Model */,
 				BA48CC762552CEC80020F72B /* Groups */,
@@ -133,6 +138,15 @@
 				BA7E2DCA2557EE7000868F51 /* LikeButton.swift */,
 			);
 			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		BA8AA39025611037008E348A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				BA8AA3912561141A008E348A /* NewsTableViewController.swift */,
+				BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +231,10 @@
 				BA48CC8E2552E7550020F72B /* MyGroupsCell.swift in Sources */,
 				BA756B3725457C280087B127 /* AppDelegate.swift in Sources */,
 				BA7E2DC125567AE400868F51 /* RoundedAvatar.swift in Sources */,
+				BA8AA3922561141A008E348A /* NewsTableViewController.swift in Sources */,
 				BA48CC882552DEAF0020F72B /* GroupCell.swift in Sources */,
 				BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */,
+				BA8AA3962561186C008E348A /* NewsCellTableViewCell.swift in Sources */,
 				BA7E2DC425567F5200868F51 /* AvatarImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
