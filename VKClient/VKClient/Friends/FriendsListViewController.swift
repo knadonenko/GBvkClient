@@ -67,7 +67,7 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFriendAvatar" {
             
-            let friendPhotoController = segue.destination as! FriendsViewController
+            let friendPhotoController = segue.destination as! FriendsPhotosViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let section = sections[indexPath.section]
                 friendPhotoController.friendsImagePath = friendsList[section.names[indexPath.row]]
