@@ -27,6 +27,7 @@
 		BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DCA2557EE7000868F51 /* LikeButton.swift */; };
 		BA8AA3922561141A008E348A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3912561141A008E348A /* NewsTableViewController.swift */; };
 		BA8AA3962561186C008E348A /* NewsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */; };
+		BAB8ECB625619DB60042A0C7 /* DottedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		BA7E2DCA2557EE7000868F51 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		BA8AA3912561141A008E348A /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellTableViewCell.swift; sourceTree = "<group>"; };
+		BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				BA7E2DC025567AE400868F51 /* RoundedAvatar.swift */,
 				BA7E2DC325567F5200868F51 /* AvatarImageView.swift */,
 				BA7E2DCA2557EE7000868F51 /* LikeButton.swift */,
+				BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB8ECB625619DB60042A0C7 /* DottedProgressBar.swift in Sources */,
 				BA48CC852552DE9C0020F72B /* GroupsViewController.swift in Sources */,
 				BA48CC7C2552D20F0020F72B /* FriendsListViewController.swift in Sources */,
 				BA48CC7F2552D4260020F72B /* FriendsCell.swift in Sources */,

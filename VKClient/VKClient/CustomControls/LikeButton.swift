@@ -43,12 +43,20 @@ import UIKit
     
     func incrementLikesCount() {
         likeCounter += 1
-        updateLikesCount(likes: likeCounter)
+        UIView.transition(with: likeLabel,
+                          duration: 0.25,
+                          options: .transitionFlipFromLeft,
+                          animations: { self.likeLabel.text = "\(self.likeCounter)" },
+                          completion: nil)
     }
     
     func decrementLikesCount() {
         likeCounter -= 1
-        updateLikesCount(likes: likeCounter)
+        UIView.transition(with: likeLabel,
+                          duration: 0.25,
+                          options: .transitionFlipFromRight,
+                          animations: { self.likeLabel.text = "\(self.likeCounter)" },
+                          completion: nil)
     }
     
     func updateLikesCount(likes: Int) {
