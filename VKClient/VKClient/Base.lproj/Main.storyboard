@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEx-hr-me2">
-                                <rect key="frame" x="0.0" y="224" width="414" height="454"/>
+                                <rect key="frame" x="0.0" y="223.5" width="414" height="454"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="F2n-UG-YJi"/>
                                     <constraint firstAttribute="height" constant="454" id="LGk-dc-f2X"/>
@@ -584,7 +584,7 @@
         <!--Друзья-->
         <scene sceneID="yMI-tG-Fey">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lw8-Id-fUw" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lw8-Id-fUw" customClass="CustomNavigationController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" id="0Fi-c4-OTp">
                         <imageReference key="image" image="person.2.fill" catalog="system" symbolScale="large"/>
                         <imageReference key="selectedImage" image="person.2.fill" catalog="system" symbolScale="large"/>
@@ -606,7 +606,7 @@
         <!--Сообщества-->
         <scene sceneID="BWP-cw-CuA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PdX-A5-3S2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PdX-A5-3S2" customClass="CustomNavigationController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Сообщества" id="02W-Wk-dag">
                         <imageReference key="image" image="person.3.fill" catalog="system" symbolScale="large"/>
                         <imageReference key="selectedImage" image="person.3.fill" catalog="system" symbolScale="large"/>
