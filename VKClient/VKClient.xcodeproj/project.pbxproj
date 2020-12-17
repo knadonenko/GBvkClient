@@ -33,6 +33,7 @@
 		BAA33C6C256D793F007B99BC /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA33C6B256D793F007B99BC /* CustomNavigationController.swift */; };
 		BAA33C6F256D7AD3007B99BC /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA33C6E256D7AD3007B99BC /* CustomPushAnimation.swift */; };
 		BAB8ECB625619DB60042A0C7 /* DottedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */; };
+		BAE8C835258BD52F00CE421C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE8C834258BD52F00CE421C /* Session.swift */; };
 		BAEA818D256931070065F548 /* HorizontalPagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA818C256931070065F548 /* HorizontalPagingCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		BAA33C6B256D793F007B99BC /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		BAA33C6E256D7AD3007B99BC /* CustomPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
 		BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedProgressBar.swift; sourceTree = "<group>"; };
+		BAE8C834258BD52F00CE421C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BAEA818C256931070065F548 /* HorizontalPagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPagingCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 		BA756B3525457C280087B127 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				BAE8C833258BD4F200CE421C /* Network */,
 				BAA33C6A256D791B007B99BC /* NavigationController */,
 				BAA33C69256D78F5007B99BC /* CustomTransitions */,
 				BA8AA39025611037008E348A /* News */,
@@ -184,6 +187,14 @@
 				BAA33C6B256D793F007B99BC /* CustomNavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		BAE8C833258BD4F200CE421C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BAE8C834258BD52F00CE421C /* Session.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 				BAA33C6C256D793F007B99BC /* CustomNavigationController.swift in Sources */,
 				BA03E27C256E29FC0076F015 /* CustomInteractiveTransition.swift in Sources */,
 				BA48CC822552D9300020F72B /* FriendsPhotoCell.swift in Sources */,
+				BAE8C835258BD52F00CE421C /* Session.swift in Sources */,
 				BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */,
 				BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */,
 				BA48CC9A2552E9FE0020F72B /* Friends.swift in Sources */,
