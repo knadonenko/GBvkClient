@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oyk-JP-IM9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -602,6 +602,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hA4-hr-fRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="861" y="-252"/>
+        </scene>
+        <!--Web Kit Login View Controller-->
+        <scene sceneID="IMf-Yw-abR">
+            <objects>
+                <viewController id="Oyk-JP-IM9" customClass="WebKitLoginViewController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LRb-UB-b8a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4A-Ze-aM6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RVc-nP-bF2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RVc-nP-bF2" firstAttribute="bottom" secondItem="v4A-Ze-aM6" secondAttribute="bottom" id="MPw-cD-rId"/>
+                            <constraint firstItem="RVc-nP-bF2" firstAttribute="trailing" secondItem="v4A-Ze-aM6" secondAttribute="trailing" id="NA7-Bl-D5m"/>
+                            <constraint firstItem="v4A-Ze-aM6" firstAttribute="top" secondItem="RVc-nP-bF2" secondAttribute="top" id="hWr-KQ-NiE"/>
+                            <constraint firstItem="v4A-Ze-aM6" firstAttribute="leading" secondItem="RVc-nP-bF2" secondAttribute="leading" id="qeA-bG-857"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webKitView" destination="v4A-Ze-aM6" id="jQL-8N-a81"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="815-zv-Sh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-219" y="-1732"/>
         </scene>
         <!--Сообщества-->
         <scene sceneID="BWP-cw-CuA">
