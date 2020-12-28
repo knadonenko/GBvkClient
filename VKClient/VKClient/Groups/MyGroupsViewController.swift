@@ -9,13 +9,18 @@ import UIKit
 
 class MyGroupsViewController: UITableViewController {
     
-    var groups = Group.allGroups
+    var groups: [GroupModel] = []//Group.allGroups
+
+    let session = Session.shared
+    let network = NetworkRequests()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        network.getGroupsList(session.token) { [weak self] groups in
+            self?.groups = groups
+            self?.tableView.reloadData()
+        }
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -30,7 +35,7 @@ class MyGroupsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! MyGroupsCell
         
-        let groupName = groups[indexPath.row]
+        let groupName = groups[indexPath.row].name
         cell.myGroupName.text = groupName
         
         return cell
@@ -53,11 +58,11 @@ class MyGroupsViewController: UITableViewController {
             
             if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
                 
-                let city = allGroupsController.groups[indexPath.row]
-                if !groups.contains(city) {
-                    groups.append(city)
-                    tableView.reloadData()
-                }
+                let groups = allGroupsController.groups[indexPath.row]
+//                if !groups.contains(city) {
+//                    groups.append(city)
+//                    tableView.reloadData()
+//                }
                 
             }
             

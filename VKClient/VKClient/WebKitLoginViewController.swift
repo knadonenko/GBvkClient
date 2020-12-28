@@ -60,12 +60,19 @@ class WebKitLoginViewController: UIViewController, WKNavigationDelegate {
         
         let token = params["access_token"]
         
+//        print(token)
+        
         session.token = token
         
-        network.getFriendsList(session.token)
-        network.getPersonalPhotoList(session.token, "1")
-        network.getGroupsList(session.token)
-        network.getGroupsSearch(session.token, "steam")
+        if !token!.isEmpty {
+            self.dismiss(animated: false, completion: nil)
+            performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+        
+//        network.getFriendsList(session.token)
+//        network.getPersonalPhotoList(session.token, "1")
+//        network.getGroupsList(session.token)
+//        network.getGroupsSearch(session.token, "steam")
         
         decisionHandler(.cancel)
     }

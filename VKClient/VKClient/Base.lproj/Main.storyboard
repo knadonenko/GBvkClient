@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218.84057971014494" y="-986.38392857142856"/>
+            <point key="canvasLocation" x="-1990" y="-1732"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gCs-2E-UEh">
@@ -631,11 +631,12 @@
                     </view>
                     <connections>
                         <outlet property="webKitView" destination="v4A-Ze-aM6" id="jQL-8N-a81"/>
+                        <segue destination="zoY-6m-DCe" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="3u3-gd-AGw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="815-zv-Sh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-219" y="-1732"/>
+            <point key="canvasLocation" x="-142" y="-986"/>
         </scene>
         <!--Сообщества-->
         <scene sceneID="BWP-cw-CuA">
@@ -682,6 +683,9 @@
             <point key="canvasLocation" x="1502" y="638"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3u3-gd-AGw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="bubble.left.fill" catalog="system" width="128" height="110"/>
