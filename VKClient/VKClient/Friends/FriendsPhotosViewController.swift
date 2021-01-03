@@ -10,7 +10,7 @@ import UIKit
 class FriendsPhotosViewController: UIViewController {
     
     var friendsImagePath: String!
-    var id: Int!
+    var id: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

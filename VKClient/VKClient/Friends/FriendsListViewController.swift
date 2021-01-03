@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsListViewController: UITableViewController, UISearchBarDelegate {
     
@@ -110,6 +111,17 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
         let keys = groupedFriends.keys.sorted()
         
         sections = keys.map{ Section(letter: $0, names: groupedFriends[$0]!.sorted())}
+    }
+
+    func saveFriendsData(_ friends: [FriendsModel]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(friends)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
     }
 
 }
