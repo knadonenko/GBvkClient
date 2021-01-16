@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class UserResponse: Decodable {
     let response: UserItems
@@ -23,8 +24,8 @@ class User: Decodable {
     }
 }
 
-class Size: Codable {
-    let url: String
+class Size: Object, Codable {
+    @objc dynamic let url: String
 
     init(url: String) {
         self.url = url

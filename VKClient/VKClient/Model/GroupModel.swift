@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class GroupResponse: Decodable {
     let response: GResponse
@@ -15,10 +16,10 @@ class GResponse: Decodable {
     let items: [GroupModel]
 }
 
-class GroupModel: Decodable {
+class GroupModel: Object, Decodable {
     
-    var name: String?
-    var photo_50: String?
+    @objc dynamic var name: String?
+    @objc dynamic var photo_50: String?
     
     enum CodingKeys: String, CodingKey {
         case name

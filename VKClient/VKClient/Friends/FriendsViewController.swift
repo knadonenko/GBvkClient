@@ -17,7 +17,7 @@ class FriendsViewController: HorizontalPagingCollectionView {
     let session = Session.shared
     let network = NetworkRequests()
     var user: [User] = []
-    var id: Int!
+    var id: String!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
