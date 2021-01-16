@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Friends {
+class Friends: Codable {
     static var allFriends = ["Иванов Иван":"friend01.png",
                              "Илья Ильин":"friend01.png",
                              "Петров Петр":"friend02.png",
