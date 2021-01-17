@@ -17,12 +17,13 @@ class FriendsViewController: HorizontalPagingCollectionView {
     let session = Session.shared
     let network = NetworkRequests()
     var user: [User] = []
-    var id: String!
+    var id: Int = 0
+    var dataBase = DataBaseWorker()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        network.getPersonalPhotoList(session.token, "\(id!)") { [weak self] user in
-            self?.user = user
+        network.getPersonalPhotoList(session.token, "\(id)") { [weak self] in
+            self?.user = (self?.dataBase.getUserData(self?.id ?? 0) ?? [])
             self?.collectionView.reloadData()
         }
     }
@@ -38,7 +39,7 @@ class FriendsViewController: HorizontalPagingCollectionView {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhoto", for: indexPath) as! FriendsPhotoCell
 
-        let url = URL(string: user[indexPath.row].sizes[2].url)
+        let url = URL(string: user[indexPath.row].sizes[2].url ?? "")
         cell.photo.load(url: url!)
 
         return cell

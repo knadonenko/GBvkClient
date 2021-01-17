@@ -38,7 +38,10 @@
 		BAB8ECB625619DB60042A0C7 /* DottedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8ECB525619DB60042A0C7 /* DottedProgressBar.swift */; };
 		BAE8C835258BD52F00CE421C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE8C834258BD52F00CE421C /* Session.swift */; };
 		BAEA818D256931070065F548 /* HorizontalPagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA818C256931070065F548 /* HorizontalPagingCollectionView.swift */; };
+		FCE99096EA14C9BF82EB4D7C /* FriendsSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE99E1B6E94FC3964CB073B /* FriendsSections.swift */; };
 		FCE9915F117B8CAD7A122A2C /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE99619FAC92EE091D86D83 /* CustomPushAnimation.swift */; };
+		FCE996E66EEB2B9CCD162C59 /* DataBaseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE9963688E6A77E31A0C6E0 /* DataBaseWorker.swift */; };
+		FCE998BCAF6D484D27BA3413 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE99CA754424EE77E88B826 /* DateHelper.swift */; };
 		FCE99D6B3D4727FF6B29C07D /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE99598C61B8B6AC83FE8B7 /* CustomPopAnimation.swift */; };
 		FCE99F903771B07881C51A89 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE99589649C847CF1A0542E /* CustomInteractiveTransition.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,9 @@
 		FCE99589649C847CF1A0542E /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
 		FCE99598C61B8B6AC83FE8B7 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
 		FCE99619FAC92EE091D86D83 /* CustomPushAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
+		FCE9963688E6A77E31A0C6E0 /* DataBaseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseWorker.swift; sourceTree = "<group>"; };
+		FCE99CA754424EE77E88B826 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		FCE99E1B6E94FC3964CB073B /* FriendsSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 				BAA44FD32594AAA500B2307D /* FriendsModel.swift */,
 				BAA44FE82594CBBC00B2307D /* GroupModel.swift */,
 				BA8C07C52599D3B200916B82 /* UserModel.swift */,
+				FCE99E1B6E94FC3964CB073B /* FriendsSections.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 				BA756B3425457C280087B127 /* Products */,
 				2C0E55B73163FF4A1506EF76 /* Pods */,
 				039524E1185954B93785E452 /* Frameworks */,
+				FCE9981C5EA5CEAAF3CC17EC /* DataBase */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +191,7 @@
 				BA756B4425457C290087B127 /* Info.plist */,
 				BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */,
 				BA43607D258F6910000657DD /* WebKitLoginViewController.swift */,
+				FCE9997DFBD9B7A004E6C3A7 /* Utils */,
 			);
 			path = VKClient;
 			sourceTree = "<group>";
@@ -224,6 +233,22 @@
 				BA436084258F732F000657DD /* NetworkRequests.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FCE9981C5EA5CEAAF3CC17EC /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				FCE9963688E6A77E31A0C6E0 /* DataBaseWorker.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		FCE9997DFBD9B7A004E6C3A7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FCE99CA754424EE77E88B826 /* DateHelper.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FCE999F7F0D85B543D5199DD /* CustomTransitions */ = {
@@ -380,6 +405,9 @@
 				FCE9915F117B8CAD7A122A2C /* CustomPushAnimation.swift in Sources */,
 				FCE99D6B3D4727FF6B29C07D /* CustomPopAnimation.swift in Sources */,
 				FCE99F903771B07881C51A89 /* CustomInteractiveTransition.swift in Sources */,
+				FCE996E66EEB2B9CCD162C59 /* DataBaseWorker.swift in Sources */,
+				FCE99096EA14C9BF82EB4D7C /* FriendsSections.swift in Sources */,
+				FCE998BCAF6D484D27BA3413 /* DateHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
