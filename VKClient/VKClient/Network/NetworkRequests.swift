@@ -59,17 +59,21 @@ class NetworkRequests {
         }
     }
     
-    public func getGroupsList(_ token: String, completion: @escaping ([GroupModel]) -> Void) {
+    public func getGroupsList(_ token: String, completion: @escaping () -> Void) {
         let parameters: Parameters = [
             "extended": "true",
             "access_token": token,
             "v": version
         ]
         let url = baseURL + groupsURL
-        AF.request(url, parameters: parameters).responseData { response in
+        AF.request(url, parameters: parameters).responseData { [weak self] response in
             guard let data = response.value else { return }
             let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
-            completion(groups)
+            groups.forEach {
+                $0.date = DateHelper().currentDate
+            }
+            self?.database.writeGroupsData(groups)
+            completion()
         }
     }
     

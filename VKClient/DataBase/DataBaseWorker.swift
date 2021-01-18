@@ -63,7 +63,7 @@ class DataBaseWorker {
     func getGroupsData() -> [GroupModel] {
         do {
             let realm = try Realm()
-            let groups = realm.objects(GroupModel.self)
+            let groups = realm.objects(GroupModel.self).filter("date = %@", date)
             return Array(groups)
         } catch {
             print(error)
