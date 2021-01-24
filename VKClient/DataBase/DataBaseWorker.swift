@@ -48,26 +48,26 @@ class DataBaseWorker {
         }
     }
 
-    func getFriendsData() -> [FriendsModel]? {
+    func getFriendsData() -> Results<FriendsModel>? {
         do {
             let realm = try Realm()
             let friends = realm.objects(FriendsModel.self).filter("date = %@", date)
-            return Array(friends)
+            return friends
         } catch {
             print(error)
-            return []
+            return nil
         }
 
     }
 
-    func getGroupsData() -> [GroupModel] {
+    func getGroupsData() -> Results<GroupModel>? {
         do {
             let realm = try Realm()
             let groups = realm.objects(GroupModel.self).filter("date = %@", date)
-            return Array(groups)
+            return groups
         } catch {
             print(error)
-            return []
+            return nil
         }
     }
 

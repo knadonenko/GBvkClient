@@ -19,7 +19,7 @@ class NetworkRequests {
     let version: String = "5.126"
     let database = DataBaseWorker()
     
-    public func getFriendsList(_ token: String, completion: @escaping () -> Void) {
+    public func getFriendsList(_ token: String) {
         let parameters: Parameters = [
             "order": "name",
             "fields": "nickname, photo_50",
@@ -35,7 +35,6 @@ class NetworkRequests {
                 $0.date = DateHelper().currentDate
             }
             self?.database.writeFriendsData(friends)
-            completion()
         }
 
     }
@@ -59,7 +58,7 @@ class NetworkRequests {
         }
     }
     
-    public func getGroupsList(_ token: String, completion: @escaping () -> Void) {
+    public func getGroupsList(_ token: String) {
         let parameters: Parameters = [
             "extended": "true",
             "access_token": token,
@@ -73,7 +72,6 @@ class NetworkRequests {
                 $0.date = DateHelper().currentDate
             }
             self?.database.writeGroupsData(groups)
-            completion()
         }
     }
     
