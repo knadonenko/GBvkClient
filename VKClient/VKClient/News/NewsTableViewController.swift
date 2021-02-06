@@ -35,6 +35,7 @@ class NewsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCellTableViewCell
         
         cell.newsTitle.text = "Много букаф в новости!"
+        cell.newsAuthor.text = "Вася пупкин"
         cell.newsImage.image = UIImage(named: "city")
         
         return cell
