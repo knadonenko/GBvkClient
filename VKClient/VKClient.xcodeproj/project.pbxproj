@@ -20,7 +20,6 @@
 		BA48CC8B2552E7440020F72B /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC8A2552E7440020F72B /* MyGroupsViewController.swift */; };
 		BA48CC8E2552E7550020F72B /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC8D2552E7550020F72B /* MyGroupsCell.swift */; };
 		BA48CC962552E8EF0020F72B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC952552E8EF0020F72B /* Group.swift */; };
-		BA48CC9A2552E9FE0020F72B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC992552E9FE0020F72B /* Friends.swift */; };
 		BA50681225694F4F00065D0C /* FriendsPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50681125694F4F00065D0C /* FriendsPhotosViewController.swift */; };
 		BA756B3725457C280087B127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA756B3625457C280087B127 /* AppDelegate.swift */; };
 		BA756B3E25457C280087B127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA756B3C25457C280087B127 /* Main.storyboard */; };
@@ -61,7 +60,6 @@
 		BA48CC8A2552E7440020F72B /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		BA48CC8D2552E7550020F72B /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		BA48CC952552E8EF0020F72B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		BA48CC992552E9FE0020F72B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		BA50681125694F4F00065D0C /* FriendsPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotosViewController.swift; sourceTree = "<group>"; };
 		BA756B3325457C280087B127 /* VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA756B3625457C280087B127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				BA48CC952552E8EF0020F72B /* Group.swift */,
-				BA48CC992552E9FE0020F72B /* Friends.swift */,
 				BAA44FD32594AAA500B2307D /* FriendsModel.swift */,
 				BAA44FE82594CBBC00B2307D /* GroupModel.swift */,
 				BA8C07C52599D3B200916B82 /* UserModel.swift */,
@@ -389,7 +386,6 @@
 				BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */,
 				BA48CC782552CEED0020F72B /* FriendsViewController.swift in Sources */,
 				BA436085258F732F000657DD /* NetworkRequests.swift in Sources */,
-				BA48CC9A2552E9FE0020F72B /* Friends.swift in Sources */,
 				BA48CC8B2552E7440020F72B /* MyGroupsViewController.swift in Sources */,
 				BA48CC8E2552E7550020F72B /* MyGroupsCell.swift in Sources */,
 				BA756B3725457C280087B127 /* AppDelegate.swift in Sources */,

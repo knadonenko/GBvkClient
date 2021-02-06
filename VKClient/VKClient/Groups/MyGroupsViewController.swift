@@ -6,25 +6,43 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MyGroupsViewController: UITableViewController {
     
-    var groups: [GroupModel] = []//Group.allGroups
+    var groups: [GroupModel] = []
+    var groupsResult: Results<GroupModel>!
 
     let session = Session.shared
     let network = NetworkRequests()
     let dataBase = DataBaseWorker()
 
+    var notificationToken: NotificationToken?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        groups = dataBase.getGroupsData()
-        if groups.isEmpty {
-            network.getGroupsList(session.token) { [weak self] in
-                self?.groups = self?.dataBase.getGroupsData() ?? []
-                self?.tableView.reloadData()
+        network.getGroupsList(session.token)
+        loadData()
+    }
+
+    func loadData() {
+
+        guard let realm = try? Realm() else { return }
+        groupsResult = realm.objects(GroupModel.self)
+
+        notificationToken = groupsResult?.observe { [weak self] (friendsChanges: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch friendsChanges {
+            case .initial:
+                tableView.reloadData()
+            case .update:
+                self?.groupsResult = self?.dataBase.getGroupsData()!
+                self?.groups = Array((self?.groupsResult)!)
+                tableView.reloadData()
+            case .error(let error):
+                fatalError("\(error)")
             }
-        } else {
-            tableView.reloadData()
+
         }
 
     }
