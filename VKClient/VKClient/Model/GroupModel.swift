@@ -20,6 +20,7 @@ class GroupModel: Object, Decodable {
     
     @objc dynamic var name: String?
     @objc dynamic var photo_50: String?
+    @objc dynamic var date = ""
     
     enum CodingKeys: String, CodingKey {
         case name

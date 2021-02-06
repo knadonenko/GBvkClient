@@ -19,9 +19,10 @@ class FResponse: Decodable {
 class FriendsModel: Object, Decodable {
     
     @objc dynamic var first_name: String?
-    @objc dynamic var id: String?
+    @objc dynamic var id = 0
     @objc dynamic var last_name: String?
     @objc dynamic var photo_50: String?
+    @objc dynamic var date = ""
     
     enum CodingKeys: String, CodingKey {
         case first_name
@@ -34,7 +35,7 @@ class FriendsModel: Object, Decodable {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.first_name = try values.decode(String.self, forKey: .first_name)
-        self.id = try values.decode(String.self, forKey: .id)
+        self.id = try values.decode(Int.self, forKey: .id)
         self.last_name = try values.decode(String.self, forKey: .last_name)
         self.photo_50 = try values.decode(String.self, forKey: .photo_50)
     }

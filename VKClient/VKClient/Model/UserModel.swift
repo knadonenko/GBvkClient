@@ -16,18 +16,34 @@ class UserItems: Decodable {
     let items: [User]
 }
 
-class User: Decodable {
-    let sizes: [Size]
+class User: Object, Decodable {
+    var sizes = RealmSwift.List<Size>()
+    @objc dynamic var id = 0
 
-    init(sizes: [Size]) {
-        self.sizes = sizes
+    enum CodingKeys: String, CodingKey {
+        case sizes
+        case id
+    }
+
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.sizes = try values.decode(List<Size>.self, forKey: .sizes)
+        self.id = try values.decode(Int.self, forKey: .id)
     }
 }
 
-class Size: Object, Codable {
-    @objc dynamic let url: String
+class Size: Object, Decodable {
 
-    init(url: String) {
-        self.url = url
+    @objc dynamic var url: String?
+
+    enum CodingKeys: String, CodingKey {
+        case url
+    }
+
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.url = try values.decode(String.self, forKey: .url)
     }
 }

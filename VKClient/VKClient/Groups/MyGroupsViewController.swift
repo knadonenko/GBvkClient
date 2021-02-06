@@ -13,13 +13,20 @@ class MyGroupsViewController: UITableViewController {
 
     let session = Session.shared
     let network = NetworkRequests()
+    let dataBase = DataBaseWorker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        network.getGroupsList(session.token) { [weak self] groups in
-            self?.groups = groups
-            self?.tableView.reloadData()
+        groups = dataBase.getGroupsData()
+        if groups.isEmpty {
+            network.getGroupsList(session.token) { [weak self] in
+                self?.groups = self?.dataBase.getGroupsData() ?? []
+                self?.tableView.reloadData()
+            }
+        } else {
+            tableView.reloadData()
         }
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
