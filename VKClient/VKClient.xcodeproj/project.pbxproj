@@ -30,6 +30,7 @@
 		BA7E2DCB2557EE7000868F51 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E2DCA2557EE7000868F51 /* LikeButton.swift */; };
 		BA8AA3922561141A008E348A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3912561141A008E348A /* NewsTableViewController.swift */; };
 		BA8AA3962561186C008E348A /* NewsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */; };
+		BA8B59FB25D5198100CA1D3F /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B59FA25D5198100CA1D3F /* NewsModel.swift */; };
 		BA8C07C62599D3B200916B82 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C07C52599D3B200916B82 /* UserModel.swift */; };
 		BAA33C6C256D793F007B99BC /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA33C6B256D793F007B99BC /* CustomNavigationController.swift */; };
 		BAA44FD42594AAA500B2307D /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA44FD32594AAA500B2307D /* FriendsModel.swift */; };
@@ -72,6 +73,7 @@
 		BA7E2DCA2557EE7000868F51 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		BA8AA3912561141A008E348A /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		BA8AA3952561186C008E348A /* NewsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellTableViewCell.swift; sourceTree = "<group>"; };
+		BA8B59FA25D5198100CA1D3F /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		BA8C07C52599D3B200916B82 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BAA33C6B256D793F007B99BC /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		BAA44FD32594AAA500B2307D /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				BAA44FE82594CBBC00B2307D /* GroupModel.swift */,
 				BA8C07C52599D3B200916B82 /* UserModel.swift */,
 				FCE99E1B6E94FC3964CB073B /* FriendsSections.swift */,
+				BA8B59FA25D5198100CA1D3F /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				BA48CC7C2552D20F0020F72B /* FriendsListViewController.swift in Sources */,
 				BA48CC7F2552D4260020F72B /* FriendsCell.swift in Sources */,
 				BA48CC962552E8EF0020F72B /* Group.swift in Sources */,
+				BA8B59FB25D5198100CA1D3F /* NewsModel.swift in Sources */,
 				BAA33C6C256D793F007B99BC /* CustomNavigationController.swift in Sources */,
 				BA43607E258F6910000657DD /* WebKitLoginViewController.swift in Sources */,
 				BAA44FE92594CBBC00B2307D /* GroupModel.swift in Sources */,
