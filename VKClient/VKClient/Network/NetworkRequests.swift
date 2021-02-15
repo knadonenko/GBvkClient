@@ -89,7 +89,7 @@ class NetworkRequests {
         }
     }
     
-    public func getNewsFeed(_ token: String, completion: @escaping ([NewsModel]) -> Void) {
+    public func getNewsFeed(_ token: String, completion: @escaping ([NewsModel], [GroupModel]) -> Void) {
         let parameters: Parameters = [
             "access_token": token,
             "filters": "post",
@@ -100,8 +100,15 @@ class NetworkRequests {
         let url = baseURL + newsFeed
         AF.request(url, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
-            let newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
-            completion(newsFeed)
+            
+            var newsFeed: [NewsModel] = []
+            var groups: [GroupModel] = []
+            
+            DispatchQueue.global().async {
+                newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+                groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+                completion(newsFeed, groups)
+            }
         }
     }
     
