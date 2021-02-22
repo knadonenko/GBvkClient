@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsTableViewController: UITableViewController {
     
@@ -21,9 +22,7 @@ class NewsTableViewController: UITableViewController {
         network.getNewsFeed(session.token) { [weak self] newsFeed, groups in
             self?.newsFeed = newsFeed
             self?.groups = groups
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+            self?.tableView.reloadData()
         }
     }
     
@@ -42,60 +41,34 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCellTableViewCell
         
-        let newsTitle = newsFeed[indexPath.row].text
-        let sourceId = newsFeed[indexPath.row].source_id
+        let newsItem = newsFeed[indexPath.row]
+        
+        let newsTitle = newsItem.text
+        let sourceId = newsItem.source_id
         let newsAuthor = groups.first(where: {$0.id == abs(sourceId)})?.name
+        
+        if newsItem.attachments![0].type == "photo" {
+            let imageURL = newsItem.attachments![0].photo?.sizes?.first(where: {
+                $0.height > 300
+            })?.url
+            cell.newsImage.isHidden = false
+            cell.newsImage.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: UIImage(named: "city"))
+        } else {
+            cell.newsImage.isHidden = true
+        }
         
         cell.newsTitle.text = newsAuthor ?? ""
         cell.newsText.text = newsTitle
-//        cell.newsImage.image = UIImage(named: "city")
+        
+        let commentsCount = newsItem.comments?.count
+        let likeCount = newsItem.likes?.count
+        let repostCount = newsItem.reposts?.count
+        
+        cell.commentsCount.text = String(commentsCount!)
+        cell.repostsCount.text = String(likeCount!)
+        cell.viewsCount.text = String(repostCount!)
         
         return cell
     }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
