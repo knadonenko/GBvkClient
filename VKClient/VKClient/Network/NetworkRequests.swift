@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PromiseKit
 import Alamofire
 
 class NetworkRequests {
@@ -16,6 +17,8 @@ class NetworkRequests {
     let groupsURL: String = "groups.get"
     let groupsSearchURL: String = "groups.search"
     let newsFeed: String = "newsfeed.get"
+    let likesAdd: String = "likes.add"
+    let likesDelete: String = "likes.delete"
     var accessToken: String = "&access_token="
     let version: String = "5.126"
     let database = DataBaseWorker()
@@ -100,9 +103,9 @@ class NetworkRequests {
         let url = baseURL + newsFeed
         AF.request(url, parameters: parameters).responseData { response in
             
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("!!!!!!!!!!!!! \(utf8Text)")
-//            }
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("!!!!!!!!!!!!! \(utf8Text)")
+            }
             
             guard let data = response.value else { return }
             
@@ -118,9 +121,58 @@ class NetworkRequests {
             DispatchQueue.global().async(group: dispatchGroup) {
                 groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
             }
-            
             dispatchGroup.notify(queue: DispatchQueue.main) {
                 completion(newsFeed, groups)
+            }
+        }
+    }
+
+    public func likes(_ token: String, postOwner ownerID: String, _ postID: String, _ likes: String) {
+        let parameters: Parameters = [
+            "type": "post",
+            "owner_id": ownerID,
+            "item_id": postID,
+            "access_token": token,
+            "v": "5.130"
+        ]
+
+        var url = ""
+
+        switch likes {
+        case "add":
+            url = baseURL + likesAdd
+        case "delete":
+            url = baseURL + likesDelete
+        default: print("Error!")
+        }
+
+        AF.request(url, parameters: parameters).responseData { [weak self] response in
+            guard let data = response.value else { return }
+        }
+
+    }
+
+    public func getNews(_ token: String) -> Promise<[NewsModel]> {
+
+        let parameters: Parameters = [
+            "access_token": token,
+            "filters": "post",
+            "count": 5,
+            "fields": "name",
+            "v": version
+        ]
+        let url = baseURL + newsFeed
+
+        return Promise<[NewsModel]> { resolver in
+            AF.request(url, parameters: parameters).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    var newsFeed: [NewsModel] = []
+                    newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+                    resolver.fulfill(newsFeed)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
             }
         }
     }

@@ -15,6 +15,12 @@ class NewsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsCount: UILabel!
     @IBOutlet weak var repostsCount: UILabel!
     @IBOutlet weak var viewsCount: UILabel!
+    @IBOutlet weak var likeButton: LikeButton!
+
+    let session = Session.shared
+    let network = NetworkRequests()
+
+    var newsFeed: NewsModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +32,7 @@ class NewsCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+
 
 }

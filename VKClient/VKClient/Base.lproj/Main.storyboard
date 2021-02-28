@@ -332,14 +332,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="Zl5-Fl-Iw9" customClass="NewsCellTableViewCell" customModule="VKClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="233.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="251.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zl5-Fl-Iw9" id="58i-UY-d5h">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="233.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="251.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4KF-H1-qYX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="233.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="251.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок новости" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWU-5j-hlB">
                                                     <rect key="frame" x="10" y="5" width="394" height="20.5"/>
@@ -351,10 +351,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmh-7V-473">
-                                                    <rect key="frame" x="10" y="31" width="394" height="147"/>
+                                                    <rect key="frame" x="10" y="31" width="394" height="165"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12412412413eaeqsdasdaweqw2312312 3adasdasdadasd12 123waeasda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLZ-Pi-5tA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="147"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="165"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -372,26 +372,31 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="3p0-Jc-bCA"/>
                                                 </scrollView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7vJ-5z-8w6">
-                                                    <rect key="frame" x="10" y="178" width="394" height="394"/>
+                                                    <rect key="frame" x="10" y="196" width="394" height="394"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="7vJ-5z-8w6" secondAttribute="height" multiplier="1:1" id="zTL-Qf-ZAI"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FJ3-XM-Qok">
-                                                    <rect key="frame" x="10" y="183.5" width="394" height="50"/>
+                                                    <rect key="frame" x="10" y="201.5" width="394" height="50"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-MM-AaD" customClass="LikeButton" customModule="VKClient" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="98.5" height="50"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <connections>
+                                                                <action selector="likeButtonClicked:" destination="Zl5-Fl-Iw9" eventType="valueChanged" id="Jpn-K9-2sS"/>
+                                                            </connections>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAK-PX-XzC" userLabel="CommentsView">
                                                             <rect key="frame" x="98.5" y="0.0" width="98.5" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble.left.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X9A-Ta-kpC">
-                                                                    <rect key="frame" x="0.0" y="0.5" width="50" height="49.5"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X9A-Ta-kpC">
+                                                                    <rect key="frame" x="0.0" y="1" width="50" height="49.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="G1e-8n-j91"/>
                                                                     </constraints>
+                                                                    <imageReference key="image" image="bubble.left.fill" catalog="system" symbolScale="default"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="default"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfP-tT-nWQ">
                                                                     <rect key="frame" x="50" y="0.0" width="48.5" height="50"/>
@@ -407,12 +412,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hj7-sf-JpC" userLabel="ShareView">
                                                             <rect key="frame" x="197" y="0.0" width="98.5" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uvF-vO-V7j">
-                                                                    <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uvF-vO-V7j">
+                                                                    <rect key="frame" x="0.0" y="1.5" width="50" height="47"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="foO-4N-z0n"/>
                                                                         <constraint firstAttribute="height" constant="50" id="pQF-8X-L7R"/>
                                                                     </constraints>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-5o-0hM">
                                                                     <rect key="frame" x="50" y="0.0" width="48.5" height="50"/>
@@ -428,12 +434,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-YJ-vOP" userLabel="Views">
                                                             <rect key="frame" x="295.5" y="0.0" width="98.5" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SkG-Py-v8p">
-                                                                    <rect key="frame" x="0.0" y="1.5" width="50" height="46.5"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SkG-Py-v8p">
+                                                                    <rect key="frame" x="0.0" y="2" width="50" height="46"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="xBa-Sh-THb"/>
                                                                         <constraint firstAttribute="width" constant="50" id="xDy-ng-H8c"/>
                                                                     </constraints>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-X6-qR1">
                                                                     <rect key="frame" x="50" y="0.0" width="48.5" height="50"/>
@@ -477,6 +484,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentsCount" destination="GfP-tT-nWQ" id="ntl-u8-7rP"/>
+                                    <outlet property="likeButton" destination="xL5-MM-AaD" id="HPX-s4-ZSQ"/>
                                     <outlet property="newsImage" destination="7vJ-5z-8w6" id="fEI-rF-bm8"/>
                                     <outlet property="newsText" destination="zLZ-Pi-5tA" id="pbw-J5-eXN"/>
                                     <outlet property="newsTitle" destination="QWU-5j-hlB" id="2aw-17-IUA"/>
