@@ -16,8 +16,8 @@ class FResponse: Decodable {
     let items: [FriendsModel]
 }
 
-class FriendsModel: Object, Decodable {
-    
+class FriendsModel: Object, Decodable, Comparable {
+
     @objc dynamic var first_name: String?
     @objc dynamic var id = 0
     @objc dynamic var last_name: String?
@@ -38,6 +38,10 @@ class FriendsModel: Object, Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.last_name = try values.decode(String.self, forKey: .last_name)
         self.photo_50 = try values.decode(String.self, forKey: .photo_50)
+    }
+    
+    static func < (lhs: FriendsModel, rhs: FriendsModel) -> Bool {
+        lhs.first_name! < rhs.first_name!
     }
     
 }

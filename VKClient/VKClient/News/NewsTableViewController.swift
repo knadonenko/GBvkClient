@@ -39,12 +39,10 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return newsFeed.count
     }
 
@@ -57,17 +55,7 @@ class NewsTableViewController: UITableViewController {
         let sourceId = newsItem.source_id
         let newsAuthor = groups.first(where: { $0.id == abs(sourceId) })?.name
 
-        if let newsAttachments = newsItem.attachments?[0] {
-            if newsAttachments.type == "photo" {
-                let imageURL = newsAttachments.photo?.sizes?.first(where: {
-                    $0.height > 300
-                })?.url
-                cell.newsImage.isHidden = false
-                cell.newsImage.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: UIImage(named: "city"))
-            } else {
-                cell.newsImage.isHidden = true
-            }
-        }
+        showPhoto(cell, with: newsItem)
 
         cell.newsTitle.text = newsAuthor ?? ""
         cell.newsText.text = newsTitle
@@ -86,6 +74,20 @@ class NewsTableViewController: UITableViewController {
         cell.likeButton.post_id = newsItem.post_id
 
         return cell
+    }
+    
+    func showPhoto(_ cell: NewsCellTableViewCell, with newsData: NewsModel) {
+        if let newsAttachments = newsData.attachments?[0] {
+            if newsAttachments.type == "photo" {
+                let imageURL = newsAttachments.photo?.sizes?.first(where: {
+                    $0.height > 300
+                })?.url
+                cell.newsImage.isHidden = false
+                cell.newsImage.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: UIImage(named: "city"))
+            } else {
+                cell.newsImage.isHidden = true
+            }
+        }
     }
 
 }
