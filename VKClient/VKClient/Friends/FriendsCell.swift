@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FriendsCell: UITableViewCell {
     
@@ -25,9 +26,9 @@ class FriendsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setFriendsData(text: String) {
-        friendsName.text = text
-//        friendsAvatar = UIImage(named: friendsList[section.names[indexPath.row]]!)
+    func setFriendsData(friend: FriendsModel) {
+        friendsName.text = "\(friend.first_name!) \(friend.last_name!)"
+        friendsAvatar.sd_setImage(with: URL(string: friend.photo_50 ?? ""), placeholderImage: UIImage(named: "friend01"))
     }
     
 }

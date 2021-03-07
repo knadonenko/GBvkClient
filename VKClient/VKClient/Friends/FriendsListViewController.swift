@@ -60,14 +60,12 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
         let section = sections[indexPath.section].names
-        let friendsName = "\(section[indexPath.row].first_name!) \(section[indexPath.row].last_name!)"
+        cell.setFriendsData(friend: section[indexPath.row])
 
-        cell.setFriendsData(text: friendsName)
-
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTap(tapGesture:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        cell.friendsAvatar.isUserInteractionEnabled = true
-//        cell.friendsAvatar.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTap(tapGesture:)))
+        tapGesture.numberOfTapsRequired = 1
+        cell.friendsAvatar.isUserInteractionEnabled = true
+        cell.friendsAvatar.addGestureRecognizer(tapGesture)
 
         return cell
     }

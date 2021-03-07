@@ -19,12 +19,8 @@ class NewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        network.getNewsFeed(session.token) { [weak self] newsFeed, groups in
-            self?.newsFeed = newsFeed
-            self?.groups = groups
-            self?.tableView.reloadData()
-        }
+        pullToRefresh()
+        getNews()
 
 //        firstly {
 //            network.getNews(session.token)
@@ -64,6 +60,10 @@ class NewsTableViewController: UITableViewController {
         let likeCount = newsItem.likes?.count
         let repostCount = newsItem.reposts?.count
         let viewsCount = newsItem.views?.count ?? 0
+        
+        if newsItem.likes?.user_likes == 1 {
+            cell.likeButton.updateLikeButton()
+        }
 
         cell.likeButton.updateLikesCount(likes: Int(likeCount!))
         cell.commentsCount.text = String(commentsCount!)
@@ -89,5 +89,30 @@ class NewsTableViewController: UITableViewController {
             }
         }
     }
-
+    
+    func getNews() {
+        network.getNewsFeed(session.token) { [weak self] newsFeed, groups in
+            self?.newsFeed = newsFeed
+            self?.groups = groups
+            self?.tableView.reloadData()
+        }
+    }
+    
+    fileprivate func pullToRefresh() {
+        
+        refreshControl = UIRefreshControl()
+        
+        refreshControl?.attributedTitle = NSAttributedString(string: "Обновляем ленту")
+        refreshControl?.tintColor = .blue
+        
+        refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+        
+    }
+    
+    @objc func refreshNews() {
+        self.refreshControl?.beginRefreshing()
+        getNews()
+        self.refreshControl?.endRefreshing()
+    }
+    
 }
