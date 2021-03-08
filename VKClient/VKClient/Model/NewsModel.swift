@@ -14,6 +14,7 @@ class NewsResponse: Decodable {
 class NResponse: Decodable {
     let items: [NewsModel]
     let groups: [GroupModel]
+    let next_from: String
 }
 
 class NewsModel: Decodable {

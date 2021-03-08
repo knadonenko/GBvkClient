@@ -13,7 +13,7 @@ class NetworkRequests {
     
     let baseURL: String = "https://api.vk.com/method/"
     var accessToken: String = "&access_token="
-    let version: String = "5.126"
+    let version: String = "5.130"
     let database = DataBaseWorker()
     
     public func getFriendsList(_ token: String) {
@@ -141,24 +141,25 @@ class NetworkRequests {
 
     }
 
-    public func getNews(_ token: String) -> Promise<[NewsModel]> {
+    public func getNews(_ token: String, _ nextFrom: String) -> Promise<Data> {
 
         let parameters: Parameters = [
             "access_token": token,
             "filters": "post",
-            "count": 5,
+            "start_from": nextFrom,
+            "count": 10,
             "fields": "name",
             "v": version
         ]
         let url = baseURL + NetworkEndpoints.NEWSFEED_URL.rawValue
 
-        return Promise<[NewsModel]> { resolver in
+        return Promise<Data> { resolver in
             AF.request(url, parameters: parameters).responseData { response in
                 switch response.result {
                 case .success(let data):
-                    var newsFeed: [NewsModel] = []
-                    newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
-                    resolver.fulfill(newsFeed)
+//                    var newsFeed: [NewsModel] = []
+//                    newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+                    resolver.fulfill(data)
                 case .failure(let error):
                     resolver.reject(error)
                 }

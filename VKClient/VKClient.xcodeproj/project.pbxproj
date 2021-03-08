@@ -151,8 +151,8 @@
 		BA48CC902552E8D00020F72B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA48CC952552E8EF0020F72B /* Group.swift */,
 				BAA44FD32594AAA500B2307D /* FriendsModel.swift */,
+				BA48CC952552E8EF0020F72B /* Group.swift */,
 				BAA44FE82594CBBC00B2307D /* GroupModel.swift */,
 				BA8C07C52599D3B200916B82 /* UserModel.swift */,
 				FCE99E1B6E94FC3964CB073B /* FriendsSections.swift */,

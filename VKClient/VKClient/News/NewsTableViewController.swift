@@ -16,20 +16,16 @@ class NewsTableViewController: UITableViewController {
 
     let session = Session.shared
     let network = NetworkRequests()
+    
+    var nextFrom = ""
+    var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pullToRefresh()
         getNews()
 
-//        firstly {
-//            network.getNews(session.token)
-//        }.done { newsFeed in
-//            self.newsFeed = newsFeed
-//            self.tableView.reloadData()
-//        }.catch { error in
-//            print(error)
-//        }
+        tableView.prefetchDataSource = self
     }
 
     // MARK: - Table view data source
@@ -91,10 +87,15 @@ class NewsTableViewController: UITableViewController {
     }
     
     func getNews() {
-        network.getNewsFeed(session.token) { [weak self] newsFeed, groups in
-            self?.newsFeed = newsFeed
-            self?.groups = groups
-            self?.tableView.reloadData()
+        firstly {
+            network.getNews(session.token, nextFrom)
+        }.done { data in
+            self.newsFeed.append(contentsOf: try! JSONDecoder().decode(NewsResponse.self, from: data).response.items)
+            self.groups.append(contentsOf: try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups)
+            self.nextFrom = try! JSONDecoder().decode(NewsResponse.self, from: data).response.next_from
+            self.tableView.reloadData()
+        }.catch { error in
+            print(error)
         }
     }
     
@@ -111,8 +112,26 @@ class NewsTableViewController: UITableViewController {
     
     @objc func refreshNews() {
         self.refreshControl?.beginRefreshing()
+        nextFrom = ""
+        newsFeed = []
+        groups = []
         getNews()
         self.refreshControl?.endRefreshing()
     }
     
+}
+
+extension NewsTableViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map({ $0.row }).max() else {
+            return
+        }
+        if maxSection > newsFeed.count - 4, !isLoading {
+            isLoading = true
+            print("111111111111 LOADING")
+            getNews()
+            isLoading = false
+        }
+        
+    }
 }
