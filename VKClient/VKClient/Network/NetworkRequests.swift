@@ -15,6 +15,7 @@ class NetworkRequests {
     let personalPhotoURL: String = "photos.get"
     let groupsURL: String = "groups.get"
     let groupsSearchURL: String = "groups.search"
+    let newsFeed: String = "newsfeed.get"
     var accessToken: String = "&access_token="
     let version: String = "5.126"
     let database = DataBaseWorker()
@@ -85,6 +86,22 @@ class NetworkRequests {
         let url = baseURL + groupsSearchURL
         AF.request(url, parameters: parameters).responseJSON {
             response in print(response.value ?? "EPIC FAIL")
+        }
+    }
+    
+    public func getNewsFeed(_ token: String, completion: @escaping ([NewsModel]) -> Void) {
+        let parameters: Parameters = [
+            "access_token": token,
+            "filters": "post",
+            "count": 5,
+            "fields": "name",
+            "v": version
+        ]
+        let url = baseURL + newsFeed
+        AF.request(url, parameters: parameters).responseData { response in
+            guard let data = response.value else { return }
+            let newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            completion(newsFeed)
         }
     }
     
