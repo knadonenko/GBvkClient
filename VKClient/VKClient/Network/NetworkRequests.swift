@@ -99,14 +99,27 @@ class NetworkRequests {
         ]
         let url = baseURL + newsFeed
         AF.request(url, parameters: parameters).responseData { response in
+            
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                print("!!!!!!!!!!!!! \(utf8Text)")
+//            }
+            
             guard let data = response.value else { return }
             
             var newsFeed: [NewsModel] = []
             var groups: [GroupModel] = []
             
-            DispatchQueue.global().async {
+            let dispatchGroup = DispatchGroup()
+            
+            DispatchQueue.global().async(group: dispatchGroup) {
                 newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            }
+            
+            DispatchQueue.global().async(group: dispatchGroup) {
                 groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+            }
+            
+            dispatchGroup.notify(queue: DispatchQueue.main) {
                 completion(newsFeed, groups)
             }
         }
