@@ -65,6 +65,11 @@ import UIKit
                 animations: { self.likeLabel.text = "\(self.likeCounter)" },
                 completion: nil)
     }
+    
+    public func updateLikeButton() {
+        isLike = true
+        likeButtonView.setImage(UIImage(named: "liked"), for: .normal)
+    }
 
     public func updateLikesCount(likes: Int) {
         likeCounter = likes

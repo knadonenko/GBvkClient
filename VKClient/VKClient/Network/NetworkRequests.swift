@@ -12,15 +12,8 @@ import Alamofire
 class NetworkRequests {
     
     let baseURL: String = "https://api.vk.com/method/"
-    let friendsURL: String = "friends.get"
-    let personalPhotoURL: String = "photos.get"
-    let groupsURL: String = "groups.get"
-    let groupsSearchURL: String = "groups.search"
-    let newsFeed: String = "newsfeed.get"
-    let likesAdd: String = "likes.add"
-    let likesDelete: String = "likes.delete"
     var accessToken: String = "&access_token="
-    let version: String = "5.126"
+    let version: String = "5.130"
     let database = DataBaseWorker()
     
     public func getFriendsList(_ token: String) {
@@ -30,7 +23,7 @@ class NetworkRequests {
             "access_token": token,
             "v": version
         ]
-        let url = baseURL + friendsURL
+        let url = baseURL + NetworkEndpoints.FRIENDS_URL.rawValue
         AF.request(url, parameters: parameters).responseData {
             [weak self] response in
             guard let data = response.value else { return }
@@ -51,7 +44,7 @@ class NetworkRequests {
             "count": 3,
             "v": version
         ]
-        let url = baseURL + personalPhotoURL
+        let url = baseURL + NetworkEndpoints.PERSONAL_PHOTO_URL.rawValue
         AF.request(url, method: .get, parameters: parameters).responseData {
             [weak self] response in
             guard let data = response.value else { return }
@@ -68,7 +61,7 @@ class NetworkRequests {
             "access_token": token,
             "v": version
         ]
-        let url = baseURL + groupsURL
+        let url = baseURL + NetworkEndpoints.GROUPS_URL.rawValue
         AF.request(url, parameters: parameters).responseData { [weak self] response in
             guard let data = response.value else { return }
             let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
@@ -86,7 +79,7 @@ class NetworkRequests {
             "access_token": token,
             "v": version
         ]
-        let url = baseURL + groupsSearchURL
+        let url = baseURL + NetworkEndpoints.GROUPS_SEARCH_URL.rawValue
         AF.request(url, parameters: parameters).responseJSON {
             response in print(response.value ?? "EPIC FAIL")
         }
@@ -100,12 +93,8 @@ class NetworkRequests {
             "fields": "name",
             "v": version
         ]
-        let url = baseURL + newsFeed
+        let url = baseURL + NetworkEndpoints.NEWSFEED_URL.rawValue
         AF.request(url, parameters: parameters).responseData { response in
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("!!!!!!!!!!!!! \(utf8Text)")
-            }
             
             guard let data = response.value else { return }
             
@@ -140,9 +129,9 @@ class NetworkRequests {
 
         switch likes {
         case "add":
-            url = baseURL + likesAdd
+            url = baseURL + NetworkEndpoints.LIKES_ADD.rawValue
         case "delete":
-            url = baseURL + likesDelete
+            url = baseURL + NetworkEndpoints.LIKES_DELETE.rawValue
         default: print("Error!")
         }
 
@@ -152,24 +141,25 @@ class NetworkRequests {
 
     }
 
-    public func getNews(_ token: String) -> Promise<[NewsModel]> {
+    public func getNews(_ token: String, _ nextFrom: String) -> Promise<Data> {
 
         let parameters: Parameters = [
             "access_token": token,
             "filters": "post",
-            "count": 5,
+            "start_from": nextFrom,
+            "count": 10,
             "fields": "name",
             "v": version
         ]
-        let url = baseURL + newsFeed
+        let url = baseURL + NetworkEndpoints.NEWSFEED_URL.rawValue
 
-        return Promise<[NewsModel]> { resolver in
+        return Promise<Data> { resolver in
             AF.request(url, parameters: parameters).responseData { response in
                 switch response.result {
                 case .success(let data):
-                    var newsFeed: [NewsModel] = []
-                    newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
-                    resolver.fulfill(newsFeed)
+//                    var newsFeed: [NewsModel] = []
+//                    newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+                    resolver.fulfill(data)
                 case .failure(let error):
                     resolver.reject(error)
                 }

@@ -59,17 +59,13 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
-        let section = sections[indexPath.section]
+        let section = sections[indexPath.section].names
+        cell.setFriendsData(friend: section[indexPath.row])
 
-        cell.friendsName.text = section.names[indexPath.row]
-
-        //todo: return it later
-//        cell.friendsAvatar.image = UIImage(named: friendsList[section.names[indexPath.row]]!)
-
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTap(tapGesture:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        cell.friendsAvatar.isUserInteractionEnabled = true
-//        cell.friendsAvatar.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTap(tapGesture:)))
+        tapGesture.numberOfTapsRequired = 1
+        cell.friendsAvatar.isUserInteractionEnabled = true
+        cell.friendsAvatar.addGestureRecognizer(tapGesture)
 
         return cell
     }
@@ -99,23 +95,24 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFriendAvatar" {
-
+            
             let friendPhotoController = segue.destination as! FriendsPhotosViewController
             if let indexPath = tableView.indexPathForSelectedRow {
-                friendPhotoController.id = friends![indexPath.row].id
+                let section = sections[indexPath.section].names
+                friendPhotoController.id = section[indexPath.row].id
             }
 
         }
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        sections = sections.filter {
-            $0.names.contains(where: { $0.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil })
-        }
+//        sections = sections.filter {
+//            $0.names.contains(where: { $0.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil })
+//        }
 
-        if (searchText.count == 0) {
+//        if (searchText.count == 0) {
 //            loadInitialData()
-        }
+//        }
 
         tableView.reloadData()
     }
