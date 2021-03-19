@@ -25,6 +25,7 @@ class NewsModel: Decodable {
     var likes: Reactions?
     var reposts: Reactions?
     var views: Reactions?
+    var post_id = 0
 
     enum CodingKeys: String, CodingKey {
         case source_id
@@ -34,6 +35,7 @@ class NewsModel: Decodable {
         case likes
         case reposts
         case views
+        case post_id
     }
     
     convenience required init(from decoder: Decoder) throws {
@@ -46,6 +48,7 @@ class NewsModel: Decodable {
         self.likes = try values.decodeIfPresent(Reactions.self, forKey: .likes)
         self.reposts = try values.decodeIfPresent(Reactions.self, forKey: .reposts)
         self.views = try values.decodeIfPresent(Reactions.self, forKey: .views)
+        self.post_id = try values.decode(Int.self, forKey: .post_id)
     }
 
 }

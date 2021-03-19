@@ -14,7 +14,7 @@ class UserResponse: Decodable {
 
 class UserItems: Decodable {
     let items: [User]
-    let groups: [GroupModel]
+//    let groups: [GroupModel]
 }
 
 class User: Object, Decodable {
