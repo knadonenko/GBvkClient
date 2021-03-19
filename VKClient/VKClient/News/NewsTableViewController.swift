@@ -10,6 +10,7 @@ import UIKit
 class NewsTableViewController: UITableViewController {
     
     var newsFeed: [NewsModel] = []
+    var groups: [GroupModel] = []
     
     let session = Session.shared
     let network = NetworkRequests()
@@ -17,9 +18,12 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        network.getNewsFeed(session.token) { [weak self] newsFeed in
+        network.getNewsFeed(session.token) { [weak self] newsFeed, groups in
             self?.newsFeed = newsFeed
-            self?.tableView.reloadData()
+            self?.groups = groups
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -39,10 +43,12 @@ class NewsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCellTableViewCell
         
         let newsTitle = newsFeed[indexPath.row].text
+        let sourceId = newsFeed[indexPath.row].source_id
+        let newsAuthor = groups.first(where: {$0.id == abs(sourceId)})?.name
         
-        cell.newsTitle.text = newsTitle
-        cell.newsAuthor.text = "Вася пупкин"
-        cell.newsImage.image = UIImage(named: "city")
+        cell.newsTitle.text = newsAuthor ?? ""
+        cell.newsText.text = newsTitle
+//        cell.newsImage.image = UIImage(named: "city")
         
         return cell
     }
