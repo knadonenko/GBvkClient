@@ -35,7 +35,7 @@ import UIKit
         likeButtonView.setImage(UIImage(named: "unliked"), for: .normal)
         likeButtonView.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         likeLabel.text = "\(likeCounter)"
-        likeLabel.textColor = UIColor.darkGray
+        likeLabel.textColor = UIColor.brandGrey
 
         stackView = UIStackView(arrangedSubviews: [likeButtonView, likeLabel])
         self.addSubview(stackView)
