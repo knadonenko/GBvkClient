@@ -16,8 +16,9 @@ class MyGroupsCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func configure(with viewModel: GroupViewModel) {
+        myGroupName.text = viewModel.name
+        myGroupPhoto.sd_setImage(with: URL(string: viewModel.photo_50))
     }
 
 }
