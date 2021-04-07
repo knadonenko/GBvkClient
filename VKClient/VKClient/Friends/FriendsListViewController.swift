@@ -26,7 +26,8 @@ class FriendsListViewController: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        network.getFriendsList(session.token)
+        let loggingService = LoggingProxy(networkService: network)
+        loggingService.getFriendsList(session.token)
         loadData()
     }
 

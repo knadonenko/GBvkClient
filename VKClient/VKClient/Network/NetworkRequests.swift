@@ -9,7 +9,7 @@ import Foundation
 import PromiseKit
 import Alamofire
 
-class NetworkRequests {
+class NetworkRequests: NetworkServiceInterface {
     
     let baseURL: String = "https://api.vk.com/method/"
     var accessToken: String = "&access_token="
@@ -99,22 +99,6 @@ class NetworkRequests {
             guard let data = response.value else { return }
             
             completion(data)
-            
-//            var newsFeed: [NewsModel] = []
-//            var groups: [GroupModel] = []
-//
-//            let dispatchGroup = DispatchGroup()
-//
-//            DispatchQueue.global().async(group: dispatchGroup) {
-//                newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
-//            }
-//
-//            DispatchQueue.global().async(group: dispatchGroup) {
-//                groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
-//            }
-//            dispatchGroup.notify(queue: DispatchQueue.main) {
-//                completion(newsFeed, groups)
-//            }
         }
     }
 
