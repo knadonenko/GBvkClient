@@ -1,0 +1,27 @@
+excluded:
+  - Pods
+
+type_name:
+  min_length: 3
+
+line_length:
+  warning: 150
+  error: 500
+  ignores_comments: true
+
+nesting:
+  type_level:
+    warning: 3
+
+type_body_length:
+  warning: 250
+  error: 500
+
+identifier_name:
+  excluded:
+    - id
+vertical_whitespace:
+  warning: 2
+
+disabled_rules:
+  - large_tuple
