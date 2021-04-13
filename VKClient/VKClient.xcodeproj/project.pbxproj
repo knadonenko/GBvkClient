@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -278,6 +278,7 @@
 			buildConfigurationList = BA756B4725457C290087B127 /* Build configuration list for PBXNativeTarget "VKClient" */;
 			buildPhases = (
 				3DD9C5E978A7430223C98692 /* [CP] Check Pods Manifest.lock */,
+				E6AE82782625CF14009E0834 /* Lint Script */,
 				BA756B2F25457C280087B127 /* Sources */,
 				BA756B3025457C280087B127 /* Frameworks */,
 				BA756B3125457C280087B127 /* Resources */,
@@ -376,6 +377,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VKClient/Pods-VKClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E6AE82782625CF14009E0834 /* Lint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
