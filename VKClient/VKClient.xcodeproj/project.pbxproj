@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B539352ED7488FDF3D9ECD87 /* Pods_VKClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51DE9DC2A2DF9ED0A683671 /* Pods_VKClient.framework */; };
+		BA344CA6261B5FFB00FE70FF /* NetworkServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA344CA5261B5FFB00FE70FF /* NetworkServiceInterface.swift */; };
+		BA344CA9261B682900FE70FF /* LoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA344CA8261B682900FE70FF /* LoggingProxy.swift */; };
 		BA43607E258F6910000657DD /* WebKitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43607D258F6910000657DD /* WebKitLoginViewController.swift */; };
 		BA436085258F732F000657DD /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA436084258F732F000657DD /* NetworkRequests.swift */; };
 		BA48CC5C254DDA7C0020F72B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		188CEF3F4D2D932BF00BCD8B /* Pods-VKClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKClient.debug.xcconfig"; path = "Target Support Files/Pods-VKClient/Pods-VKClient.debug.xcconfig"; sourceTree = "<group>"; };
 		8A824369B8D121FBF9DFE64C /* Pods-VKClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKClient.release.xcconfig"; path = "Target Support Files/Pods-VKClient/Pods-VKClient.release.xcconfig"; sourceTree = "<group>"; };
+		BA344CA5261B5FFB00FE70FF /* NetworkServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceInterface.swift; sourceTree = "<group>"; };
+		BA344CA8261B682900FE70FF /* LoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingProxy.swift; sourceTree = "<group>"; };
 		BA43607D258F6910000657DD /* WebKitLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitLoginViewController.swift; sourceTree = "<group>"; };
 		BA436084258F732F000657DD /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
 		BA48CC5B254DDA7C0020F72B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BA344C9F261B5A8F00FE70FF /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				BA344CA5261B5FFB00FE70FF /* NetworkServiceInterface.swift */,
+				BA344CA8261B682900FE70FF /* LoggingProxy.swift */,
+			);
+			path = Proxies;
+			sourceTree = "<group>";
+		};
 		BA48CC752552CEC10020F72B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +208,7 @@
 		BA756B3525457C280087B127 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				BA344C9F261B5A8F00FE70FF /* Proxies */,
 				BAAC24092611C8E9006B635E /* Helpers */,
 				BAE8C833258BD4F200CE421C /* Network */,
 				BAA33C6A256D791B007B99BC /* NavigationController */,
@@ -406,10 +420,12 @@
 			files = (
 				BAEA818D256931070065F548 /* HorizontalPagingCollectionView.swift in Sources */,
 				BAB8ECB625619DB60042A0C7 /* DottedProgressBar.swift in Sources */,
+				BA344CA9261B682900FE70FF /* LoggingProxy.swift in Sources */,
 				BA48CC852552DE9C0020F72B /* GroupsViewController.swift in Sources */,
 				BA48CC7C2552D20F0020F72B /* FriendsListViewController.swift in Sources */,
 				BA48CC7F2552D4260020F72B /* FriendsCell.swift in Sources */,
 				BA48CC962552E8EF0020F72B /* Group.swift in Sources */,
+				BA344CA6261B5FFB00FE70FF /* NetworkServiceInterface.swift in Sources */,
 				BA8B59FB25D5198100CA1D3F /* NewsModel.swift in Sources */,
 				BAAC242026139BAE006B635E /* GroupViewModelFactory.swift in Sources */,
 				BAA33C6C256D793F007B99BC /* CustomNavigationController.swift in Sources */,
