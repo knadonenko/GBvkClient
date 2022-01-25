@@ -17,13 +17,23 @@ class NewsTableViewController: UITableViewController {
     let session = Session.shared
     let network = NetworkRequests()
     
+    let newsAdapter: NewsAdapterProtocol = NewsAdapter()
+    
     var nextFrom = ""
     var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pullToRefresh()
-        getNews()
+//        getNews()
+        
+    newsAdapter.getNews(session.token) { [weak self] newsFeed, groups in
+        self?.newsFeed = newsFeed
+        self?.groups = groups
+        DispatchQueue.main.async {
+            self?.tableView.reloadData()
+        }
+    }
 
         tableView.prefetchDataSource = self
     }

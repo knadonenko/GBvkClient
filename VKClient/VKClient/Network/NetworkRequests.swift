@@ -85,7 +85,7 @@ class NetworkRequests {
         }
     }
     
-    public func getNewsFeed(_ token: String, completion: @escaping ([NewsModel], [GroupModel]) -> Void) {
+    public func getNewsFeed(_ token: String, completion: @escaping (Data) -> Void) {
         let parameters: Parameters = [
             "access_token": token,
             "filters": "post",
@@ -98,21 +98,23 @@ class NetworkRequests {
             
             guard let data = response.value else { return }
             
-            var newsFeed: [NewsModel] = []
-            var groups: [GroupModel] = []
+            completion(data)
             
-            let dispatchGroup = DispatchGroup()
-            
-            DispatchQueue.global().async(group: dispatchGroup) {
-                newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
-            }
-            
-            DispatchQueue.global().async(group: dispatchGroup) {
-                groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
-            }
-            dispatchGroup.notify(queue: DispatchQueue.main) {
-                completion(newsFeed, groups)
-            }
+//            var newsFeed: [NewsModel] = []
+//            var groups: [GroupModel] = []
+//
+//            let dispatchGroup = DispatchGroup()
+//
+//            DispatchQueue.global().async(group: dispatchGroup) {
+//                newsFeed = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+//            }
+//
+//            DispatchQueue.global().async(group: dispatchGroup) {
+//                groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+//            }
+//            dispatchGroup.notify(queue: DispatchQueue.main) {
+//                completion(newsFeed, groups)
+//            }
         }
     }
 
